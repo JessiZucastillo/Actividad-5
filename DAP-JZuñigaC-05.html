@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Calculadora de IMC</title>
+<!-- Autor: Jessica Zuñiga A00513620-->
+<style>
+h1{
+  font-size:30px;
+  margin:10;
+  color:#0174DF;
+  text-align: center;
+}
+h2{
+  font-size:30px;
+  margin:10;
+  color:#DF7401;
+  text-align: center;
+}
+p{
+  font-size:20px;
+  margin:10;
+  color:#FA5882;
+  text-align: center;
+}
+</style>
+</head>
+
+<script>
+
+var pesoValue;
+var estaturaValue;
+var IMC;
+var calculo;
+
+//Metodos a utilizar
+solicitarDatos();
+calculo=parseFloat(calcularIMC());
+ClasificarIMC(calculo);
+mostrarResultados();
+
+//Metodo para solicitar peso y altura
+function solicitarDatos(){
+  var estatura;
+  var peso;
+  estatura=window.prompt("Escriba su altura en metros:","0");
+  peso=window.prompt("Escriba su peso en kg:","0");
+  pesoValue= parseInt(peso);
+  estaturaValue=parseFloat(estatura);
+}
+//metodo para hacer operación
+function calcularIMC(){
+  var IMCfinal;
+  IMCfinal= parseFloat(pesoValue/ (estaturaValue*estaturaValue));
+  document.writeln("<p>Tu peso es:"+pesoValue+" kg</p>");
+  document.writeln("<p>Tu estatura es:"+estaturaValue +" m</p>");
+  IMC=parseFloat(IMCfinal);
+  return IMC;
+
+}
+//Metodo para clasificar el IMC
+function ClasificarIMC(IMC){
+  if (IMC<18) {
+    document.writeln("<h1>Tu peso es bajo</h1>");
+}
+else if (IMC>18 && IMC<=24.9) {
+    document.writeln("<h1>Tu peso es normal </h1>");
+}
+else if(IMC>=25 && IMC<=26.9){
+    document.writeln("<h1>Tienes obesidad</h1>");
+}
+else if(IMC>=27 && IMC<=29.9){
+    document.writeln("<h1>Tienes obesidad grado I</h1>");
+}
+}
+//Metodo para imprimir resultado
+function mostrarResultados(){
+   document.writeln("<h2>Tu IMC es de: "+ IMC+ "</h2>");
+}
+
+</script>
+</head>
+</html>
